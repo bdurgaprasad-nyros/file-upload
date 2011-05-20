@@ -1,0 +1,20 @@
+<h1>New book</h1>
+
+<% form_for(@book,  :html => {:multipart => true}) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :addr %><br />
+    
+	<%= file_column_field 'book','addr' %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', books_path %>

@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @file.name %>
+</p>
+
+<p>
+  <b>Addr:</b>
+  <%=h @file.addr %>
+</p>
+
+
+<%= link_to 'Edit', edit_file_path(@file) %> |
+<%= link_to 'Back', files_path %>

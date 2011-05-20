@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @book.name %>
+</p>
+
+<p>
+  <b>Addr:</b>
+  <%=h @book.addr %>
+</p>
+
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>

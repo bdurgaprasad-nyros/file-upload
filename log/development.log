@@ -1,0 +1,330 @@
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1093.8ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (3593.8ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (93.8ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (2031.2ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBooks (20110517050659)
+  [4;36;1mSQL (390.6ms)[0m   [0;1mCREATE TABLE `books` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `addr` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (312.5ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20110517050659')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (312.5ms)[0m   [0mSHOW FIELDS FROM `books`[0m
+  [4;36;1mSQL (31.2ms)[0m   [0;1mdescribe `books`[0m
+  [4;35;1mSQL (46.9ms)[0m   [0mSHOW KEYS FROM `books`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (15.6ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#index (for 127.0.0.1 at 2011-05-17 11:21:25) [GET]
+  [4;36;1mBook Load (93.8ms)[0m   [0;1mSELECT * FROM `books` [0m
+Rendering template within layouts/books
+Rendering books/index
+Completed in 1859ms (View: 1703, DB: 109) | 200 OK [http://localhost/books]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#new (for 127.0.0.1 at 2011-05-17 11:24:26) [GET]
+  [4;35;1mBook Columns (62.5ms)[0m   [0mSHOW FIELDS FROM `books`[0m
+Rendering template within layouts/books
+Rendering books/new
+
+ActionView::TemplateError (undefined method `file_column_field' for #<ActionView::Helpers::FormBuilder:0x45ce190>) on line #13 of app/views/books/new.html.erb:
+10:   <p>
+11:     <%= f.label :addr %><br />
+12:     
+13: 	<%= f.file_column_field :addr %>
+14:   </p>
+15:   <p>
+16:     <%= f.submit 'Create' %>
+
+    app/views/books/new.html.erb:13
+    app/views/books/new.html.erb:3
+    app/controllers/books_controller.rb:29:in `new'
+
+Rendered rescues/_trace (3015.6ms)
+Rendered rescues/_request_and_response (15.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#new (for 127.0.0.1 at 2011-05-17 11:25:11) [GET]
+  [4;36;1mBook Columns (15.6ms)[0m   [0;1mSHOW FIELDS FROM `books`[0m
+Rendering template within layouts/books
+Rendering books/new
+Completed in 62ms (View: 31, DB: 16) | 200 OK [http://localhost/books/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#create (for 127.0.0.1 at 2011-05-17 11:25:19) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"NSVD185ZTKSyLW2uXFK5CcNMdlRdm991Y1gW/JESf9k=", "book"=>{"name"=>"dsfdsfsd", "addr_temp"=>"", "addr"=>"ansicon.h"}}
+  [4;35;1mBook Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `books`[0m
+
+TypeError (Do not know how to handle a string with value 'ansicon.h' that was passed to a file_column. Check if the form's encoding has been set to 'multipart/form-data'.):
+  app/controllers/books_controller.rb:43:in `new'
+  app/controllers/books_controller.rb:43:in `create'
+
+Rendered rescues/_trace (125.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#create (for 127.0.0.1 at 2011-05-17 11:26:03) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"NSVD185ZTKSyLW2uXFK5CcNMdlRdm991Y1gW/JESf9k=", "book"=>{"name"=>"dsfdsfsd", "addr_temp"=>""}}
+  [4;36;1mBook Columns (15.6ms)[0m   [0;1mSHOW FIELDS FROM `books`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mBook Create (62.5ms)[0m   [0;1mINSERT INTO `books` (`name`, `updated_at`, `addr`, `created_at`) VALUES('dsfdsfsd', '2011-05-17 05:56:03', NULL, '2011-05-17 05:56:03')[0m
+  [4;35;1mSQL (31.2ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/books/1
+Completed in 250ms (DB: 109) | 302 Found [http://localhost/books]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#show (for 127.0.0.1 at 2011-05-17 11:26:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mBook Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `books`[0m
+  [4;35;1mBook Load (31.2ms)[0m   [0mSELECT * FROM `books` WHERE (`books`.`id` = 1) [0m
+Rendering template within layouts/books
+Rendering books/show
+Completed in 172ms (View: 62, DB: 31) | 200 OK [http://localhost/books/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#index (for 127.0.0.1 at 2011-05-17 11:26:06) [GET]
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM `books` [0m
+Rendering template within layouts/books
+Rendering books/index
+  [4;35;1mBook Columns (15.6ms)[0m   [0mSHOW FIELDS FROM `books`[0m
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhost/books]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#new (for 127.0.0.1 at 2011-05-17 11:26:08) [GET]
+  [4;36;1mBook Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `books`[0m
+Rendering template within layouts/books
+Rendering books/new
+
+ActionView::TemplateError (undefined method `filedata_temp' for #<Book:0x48ab138>) on line #13 of app/views/books/new.html.erb:
+10:   <p>
+11:     <%= f.label :addr %><br />
+12:     
+13: 	<%= file_column_field 'book','filedata' %>
+14:   </p>
+15:   <p>
+16:     <%= f.submit 'Create' %>
+
+    app/views/books/new.html.erb:13
+    app/views/books/new.html.erb:3
+    app/controllers/books_controller.rb:29:in `new'
+
+Rendered rescues/_trace (156.2ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#new (for 127.0.0.1 at 2011-05-17 11:26:41) [GET]
+  [4;35;1mBook Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `books`[0m
+Rendering template within layouts/books
+Rendering books/new
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/books/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#create (for 127.0.0.1 at 2011-05-17 11:26:48) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"NSVD185ZTKSyLW2uXFK5CcNMdlRdm991Y1gW/JESf9k=", "book"=>{"name"=>"dsfdf", "filedata_temp"=>"", "filedata"=>"ANSI.c"}}
+  [4;36;1mBook Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `books`[0m
+
+TypeError (Do not know how to handle a string with value 'ANSI.c' that was passed to a file_column. Check if the form's encoding has been set to 'multipart/form-data'.):
+  app/controllers/books_controller.rb:43:in `new'
+  app/controllers/books_controller.rb:43:in `create'
+
+Rendered rescues/_trace (281.2ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#index (for 127.0.0.1 at 2011-05-17 11:30:54) [GET]
+  [4;35;1mBook Load (31.2ms)[0m   [0mSELECT * FROM `books` [0m
+Rendering template within layouts/books
+Rendering books/index
+  [4;36;1mBook Columns (15.6ms)[0m   [0;1mSHOW FIELDS FROM `books`[0m
+Completed in 94ms (View: 0, DB: 47) | 200 OK [http://localhost/books]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#new (for 127.0.0.1 at 2011-05-17 11:30:55) [GET]
+  [4;35;1mBook Columns (15.6ms)[0m   [0mSHOW FIELDS FROM `books`[0m
+Rendering template within layouts/books
+Rendering books/new
+Completed in 62ms (View: 31, DB: 16) | 200 OK [http://localhost/books/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#create (for 127.0.0.1 at 2011-05-17 11:31:03) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"NSVD185ZTKSyLW2uXFK5CcNMdlRdm991Y1gW/JESf9k=", "book"=>{"name"=>"fdgdfgdf", "addr_temp"=>"", "addr"=>"138_i18n.m4v"}}
+  [4;36;1mBook Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `books`[0m
+
+TypeError (Do not know how to handle a string with value '138_i18n.m4v' that was passed to a file_column. Check if the form's encoding has been set to 'multipart/form-data'.):
+  app/controllers/books_controller.rb:43:in `new'
+  app/controllers/books_controller.rb:43:in `create'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#index (for 127.0.0.1 at 2011-05-17 11:31:23) [GET]
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM `books` [0m
+Rendering template within layouts/books
+Rendering books/index
+  [4;36;1mBook Columns (15.6ms)[0m   [0;1mSHOW FIELDS FROM `books`[0m
+Completed in 62ms (View: 16, DB: 16) | 200 OK [http://localhost/books]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#new (for 127.0.0.1 at 2011-05-17 11:31:24) [GET]
+  [4;35;1mBook Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `books`[0m
+Rendering template within layouts/books
+Rendering books/new
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/books/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#new (for 127.0.0.1 at 2011-05-17 11:31:27) [GET]
+  [4;36;1mBook Columns (15.6ms)[0m   [0;1mSHOW FIELDS FROM `books`[0m
+Rendering template within layouts/books
+Rendering books/new
+Completed in 141ms (View: 31, DB: 16) | 200 OK [http://localhost/books/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#new (for 127.0.0.1 at 2011-05-17 11:31:56) [GET]
+  [4;35;1mBook Columns (15.6ms)[0m   [0mSHOW FIELDS FROM `books`[0m
+Rendering template within layouts/books
+Rendering books/new
+Completed in 266ms (View: 219, DB: 16) | 200 OK [http://localhost/books/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#new (for 127.0.0.1 at 2011-05-17 11:31:59) [GET]
+  [4;36;1mBook Columns (15.6ms)[0m   [0;1mSHOW FIELDS FROM `books`[0m
+Rendering template within layouts/books
+Rendering books/new
+Completed in 62ms (View: 31, DB: 16) | 200 OK [http://localhost/books/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#new (for 127.0.0.1 at 2011-05-17 11:33:08) [GET]
+  [4;35;1mBook Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `books`[0m
+Rendering template within layouts/books
+Rendering books/new
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/books/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (15.6ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#new (for 127.0.0.1 at 2011-05-17 11:33:10) [GET]
+  [4;36;1mBook Columns (15.6ms)[0m   [0;1mSHOW FIELDS FROM `books`[0m
+Rendering template within layouts/books
+Rendering books/new
+Completed in 62ms (View: 31, DB: 31) | 200 OK [http://localhost/books/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#create (for 127.0.0.1 at 2011-05-17 11:33:22) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"NSVD185ZTKSyLW2uXFK5CcNMdlRdm991Y1gW/JESf9k=", "book"=>{"name"=>"dsfdsfsd", "addr_temp"=>"", "addr"=>#<File:C:/DOCUME~1/Anu/LOCALS~1/Temp/RackMultipart.5084.0>}}
+  [4;35;1mBook Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `books`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mBook Create (0.0ms)[0m   [0mINSERT INTO `books` (`name`, `updated_at`, `addr`, `created_at`) VALUES('dsfdsfsd', '2011-05-17 06:03:25', 'chapter-menu.mov', '2011-05-17 06:03:25')[0m
+  [4;36;1mSQL (343.8ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed in 3391ms (DB: 344) | 302 Found [http://localhost/books]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#show (for 127.0.0.1 at 2011-05-17 11:33:26) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mBook Columns (31.2ms)[0m   [0mSHOW FIELDS FROM `books`[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM `books` WHERE (`books`.`id` = 2) [0m
+Rendering template within layouts/books
+Rendering books/show
+Completed in 78ms (View: 16, DB: 31) | 200 OK [http://localhost/books/2]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#index (for 127.0.0.1 at 2011-05-17 11:33:32) [GET]
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM `books` [0m
+Rendering template within layouts/books
+Rendering books/index
+  [4;36;1mBook Columns (15.6ms)[0m   [0;1mSHOW FIELDS FROM `books`[0m
+Completed in 62ms (View: 16, DB: 16) | 200 OK [http://localhost/books]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#new (for 127.0.0.1 at 2011-05-17 11:33:34) [GET]
+  [4;35;1mBook Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `books`[0m
+Rendering template within layouts/books
+Rendering books/new
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/books/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#create (for 127.0.0.1 at 2011-05-17 11:33:42) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"NSVD185ZTKSyLW2uXFK5CcNMdlRdm991Y1gW/JESf9k=", "book"=>{"name"=>"fgfdgdfgdf", "addr_temp"=>"", "addr"=>#<File:C:/DOCUME~1/Anu/LOCALS~1/Temp/RackMultipart.5084.1>}}
+  [4;36;1mBook Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `books`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mBook Create (0.0ms)[0m   [0;1mINSERT INTO `books` (`name`, `updated_at`, `addr`, `created_at`) VALUES('fgfdgdfgdf', '2011-05-17 06:03:43', 'ANSI.c', '2011-05-17 06:03:43')[0m
+  [4;35;1mSQL (140.6ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/books/3
+Completed in 688ms (DB: 141) | 302 Found [http://localhost/books]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (15.6ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#show (for 127.0.0.1 at 2011-05-17 11:33:43) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mBook Columns (15.6ms)[0m   [0;1mSHOW FIELDS FROM `books`[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM `books` WHERE (`books`.`id` = 3) [0m
+Rendering template within layouts/books
+Rendering books/show
+Completed in 47ms (View: 16, DB: 31) | 200 OK [http://localhost/books/3]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing BooksController#index (for 172.20.1.41 at 2011-05-17 11:39:00) [GET]
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM `books` [0m
+Rendering template within layouts/books
+Rendering books/index
+  [4;35;1mBook Columns (15.6ms)[0m   [0mSHOW FIELDS FROM `books`[0m
+Completed in 78ms (View: 31, DB: 16) | 200 OK [http://172.20.1.41/books]
